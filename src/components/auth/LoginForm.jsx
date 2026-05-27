@@ -6,11 +6,14 @@ import { Button } from "@heroui/react";
 
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const LoginFrom = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -23,12 +26,52 @@ const LoginFrom = () => {
   // LOGIN
   const handleLogin = async (data) => {
     // console.log(data);
-    const { data: DataRes, error } = await authClient.signIn.email({
-      email: data.email.trim(), // required
-      password: data.password, // required
-      callbackURL: "/",
-    });
-    console.log(DataRes, error);
+    const email = data?.email?.toLowerCase()?.trim();
+    const password = data?.password?.trim();
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
+    try {
+      const { data: DataRes, error } = await authClient.signIn.email(
+        {
+          email,
+          password,
+        },
+        {
+          onRequest: () => {
+            setLoading(true);
+          },
+
+          onSuccess: () => {
+            setLoading(false);
+            toast.success("Welcome back! 🌸 Login successful", {
+              position: "top-right",
+              autoClose: 3000,
+            });
+            router.push("/");
+          },
+
+          onError: (ctx) => {
+            setLoading(false);
+            toast.error(ctx.error.message || "Login failed. Please try again", {
+              position: "top-right",
+              autoClose: 4000,
+            });
+          },
+        },
+      );
+      // console.log(DataRes, error);
+    } catch (error) {
+      setLoading(false);
+      toast.error("An unexpected error occurred", {
+        position: "top-right",
+        autoClose: 4000,
+      });
+      // console.log(error);
+    }
   };
 
   return (
@@ -104,7 +147,7 @@ const LoginFrom = () => {
           </p>
 
           {/* submit button */}
-          <Button
+          <button
             type="submit"
             disabled={loading}
             className="btn w-full bg-linear-to-t  from-red-600 via-red-500 to-orange-500 text-white mb-3   rounded-full disabled:cursor-not-allowed
@@ -120,12 +163,12 @@ const LoginFrom = () => {
             ) : (
               "Login"
             )}
-          </Button>
+          </button>
 
           {/* Google */}
           <Button
             variant="secondary"
-            className="w-full bg-linear-to-t  from-red-600 via-red-500 to-orange-500 text-white mb-3 border border-border rounded-full "
+            className="w-full hover:bg-linear-to-t  from-red-600 via-red-500 to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
             onPress={() =>
               toast.info("Google signup coming soon! 🚀", {
                 position: "top-right",
@@ -133,20 +176,8 @@ const LoginFrom = () => {
               })
             }
           >
-            {loading ? (
-              <>
-                <p>
-                  <FcGoogle size={20} />
-                  <span>Continue with Google</span>
-                  <span className="loading loading-spinner w-4.5"></span>
-                </p>
-              </>
-            ) : (
-              <>
-                <FcGoogle size={20} />
-                <span>Continue with Google</span>
-              </>
-            )}
+            <FcGoogle size={20} />
+            <span>Continue with Google</span>
           </Button>
 
           <p className="text-sm text-center text-gray-700 ">

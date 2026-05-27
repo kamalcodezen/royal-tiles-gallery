@@ -26,11 +26,11 @@ const RegisterForm = () => {
 
   // REGISTER
   const handleRegister = async (data) => {
-    const name = data?.name.trim();
-    const email = data?.email.trim();
-    const photo = data?.photo;
-    const password = data?.password;
-    const confirmPassword = data?.confirmPassword;
+    const name = data?.name?.trim();
+    const email = data?.email?.toLowerCase()?.trim();
+    const photo = data?.photo?.trim();
+    const password = data?.password?.trim();
+    const confirmPassword = data?.confirmPassword?.trim();
 
     /* =========================
         VALIDATION
