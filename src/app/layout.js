@@ -38,11 +38,9 @@ export default function RootLayout({ children }) {
       className={`${urban.variable}  ${poppins.variable} ${siliguri.variable} h-screen antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
         <main className="min-h-screen">{children}
           <ToastContainer />
         </main>
-        <Footer />
       </body>
     </html>
   );

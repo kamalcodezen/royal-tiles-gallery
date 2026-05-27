@@ -20,9 +20,9 @@ const Footer = () => {
             <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
 
             <p>Email: royaltiles@gmail.com</p>
-            <p className="mt-2">Phone: +880123456789</p>
+            <p className="mt-2">Phone: +9185380000</p>
 
-            <p className="mt-2">Location: Dhaka, Bangladesh</p>
+            <p className="mt-2">Location: Delhi, India</p>
           </div>
 
           {/* Social Media */}
