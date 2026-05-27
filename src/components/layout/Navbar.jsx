@@ -3,12 +3,14 @@
 import Image from "next/image";
 import logo from "../../../public/images/logo.png";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { Avatar, AvatarFallback, Button } from "@heroui/react";
+import { Avatar } from "@heroui/react";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const { data, isPending } = authClient.useSession();
   const user = data?.user;
@@ -28,97 +30,181 @@ const Navbar = () => {
     },
   ];
 
+  /* =========================
+	   LOGOUT
+	========================= */
+
+  const handleLogout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          toast.success("See you soon! 👋 Logged out successfully", {
+            position: "top-right",
+            autoClose: 3000,
+          });
+
+          router.push("/");
+          router.refresh();
+        },
+      },
+    });
+  };
+
   return (
-    <nav className="w-11/12 mx-auto py-1 flex items-center justify-between ">
-      {/* log */}
-      <Link href={"/"}>
-        <div className="flex items-center">
-          <Image width={70} height={30} src={logo} alt="logo" />
-          <div className="text-center ">
-            <span className="font-logo text-3xl font-bold text-[#15508b] italic ">
-              Royal Tiles
-            </span>
-            <p className="font-body font-medium text-lg text-[#15508b]">
-              Ceraamics
-            </p>
-          </div>
-        </div>
-      </Link>
+    <section className="shadow">
+      <nav className="w-11/12 mx-auto py-1 flex items-center justify-between ">
+        {/* logo */}
+        <Link href={"/"}>
+          <div className="flex items-center">
+            <Image
+              width={70}
+              height={30}
+              src={logo}
+              alt="logo"
+              className="w-[clamp(2.8rem,6vw,4.4rem)] h-auto"
+            />
 
-      {/*desktop  navLink */}
-      <ul className="flex items-center justify-between gap-4 font-[500]">
-        {navLinks.map((link, ind) => (
-          <li key={ind}>
-            <Link
-              className={`transition-colors duration-200 text-[#15508b] hover:text-orange-600 ${
-                pathname === link.href ? "text-orange-600" : ""
-              }`}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-
-      {/* right section */}
-      <div>
-        {/* Loading skeleton */}
-        {isPending && (
-          <div className="h-10 w-24 animate-pulse rounded-2xl bg-muted" />
-        )}
-        {!isPending && user ? (
-          <div>
-            {/* Avatar */}
-            <div className="md:flex items-center gap-3 justify-center ">
-              {/* Avatar Dropdown */}
-              <div className="dropdown dropdown-end ">
-                <div tabIndex={0} >
-                  <Avatar>
-                    <Avatar.Image
-                      alt="kamal"
-                      src={user?.image || user?.name?.charAt(0)}
-                      referrerPolicy="no-referrer"
-                    />
-                    <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
-                  </Avatar>
-                </div>
-
-                {/* Dropdown Content */}
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-[100] w-54 p-4 shadow"
-                >
-                  {/* User Info */}
-                  <div className="mb-3">
-                    <h2 className="font-semibold text-[#15508b]">
-                      {user.name}
-                    </h2>
-
-                    <p className="text-sm text-gray-500">{user.email}</p>
-                  </div>
-
-                  <li>
-                    <Link href="/my-profile">My Profile</Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Logout */}
-              <button
-                size="sm"
-                variant="flat"
-                // onPress={handleLogout}
-                className="py-[7px] px-4 cursor-pointer rounded-full  text-white bg-orange-600 outline-none font-medium  transition-colors "
+            <div className="text-center">
+              <span
+                className="
+        font-logo
+        font-bold
+        italic
+        text-[#15508b]
+        text-[clamp(1.2rem,3vw,2rem)]
+      "
               >
-                Logout
-              </button>
+                Royal Tiles
+              </span>
+
+              <p
+                className="
+        font-body
+        font-medium
+        text-[#15508b]
+        text-[clamp(0.7rem,2vw,1.1rem)]
+      "
+              >
+                Ceramics
+              </p>
             </div>
           </div>
-        ) : <></>}
-      </div>
-    </nav>
+        </Link>
+
+        {/*desktop  navLink */}
+        <ul className="hidden md:flex items-center justify-between gap-4 font-[500]">
+          {navLinks.map((link, ind) => (
+            <li key={ind}>
+              <Link
+                className={`transition-colors duration-200 text-[#15508b] hover:text-orange-600 ${
+                  pathname === link.href ? "text-orange-600" : ""
+                }`}
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* right section */}
+        <div>
+          {/* Loading skeleton */}
+          {isPending && (
+            <div className="h-10 w-24 animate-pulse rounded-2xl bg-muted" />
+          )}
+          {!isPending && user && (
+            <di className="flex items-center justify-center">
+              {/* Avatar */}
+              <div className="md:flex flex items-center gap-3 justify-center ">
+                {/* Avatar Dropdown */}
+                <div className="dropdown dropdown-end ">
+                  <div tabIndex={0}>
+                    <Avatar>
+                      <Avatar.Image
+                        alt="kamal"
+                        src={user?.image || user?.name?.charAt(0)}
+                        referrerPolicy="no-referrer"
+                      />
+                      <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
+                    </Avatar>
+                  </div>
+
+                  {/* Dropdown Content */}
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-[100] w-54 p-4 shadow"
+                  >
+                    {/* User Info */}
+                    <div className="mb-3">
+                      <h2 className="font-semibold text-[#15508b]">
+                        {user.name}
+                      </h2>
+
+                      <p className="text-sm text-gray-500">{user.email}</p>
+                    </div>
+
+                    <li>
+                      <Link href="/my-profile">My Profile</Link>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Logout */}
+                <button
+                  onClick={handleLogout}
+                  className="
+    relative
+    overflow-hidden
+    px-5
+    py-2
+    rounded
+    bg-[#15508b]
+    text-white
+    group
+  "
+                >
+                  {/* Hover Background */}
+                  <span
+                    className="
+      absolute
+      inset-0
+      w-0
+      group-hover:w-full
+      transition-all
+      duration-700
+      bg-gradient-to-r
+      from-red-600
+      via-red-500
+      to-orange-500
+      z-0
+    "
+                  ></span>
+
+                  {/* Text */}
+                  <span className="relative z-10">Logout</span>
+                </button>
+              </div>
+            </di>
+          )}
+
+          {!isPending && !user && (
+            <Link href={"/login"}>
+              <button
+                size="sm"
+                className=" relative overflow-hidden px-6 py-2 rounded bg-[#15508b] text-white group"
+              >
+                {/* Hover Background */}
+                <span className=" absolute inset-0 w-0 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 z-0 "></span>
+
+                {/* Text */}
+                <span className="relative z-10">Login</span>
+              </button>
+            </Link>
+          )}
+        </div>
+      </nav>
+    </section>
   );
 };
 
