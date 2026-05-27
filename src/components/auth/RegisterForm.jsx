@@ -20,7 +20,7 @@ const RegisterForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+    
   // LOGIN
   const handleSignUp = async (data) => {
     console.log(data);
