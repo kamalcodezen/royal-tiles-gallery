@@ -23,6 +23,13 @@ const LoginFrom = () => {
     formState: { errors },
   } = useForm();
 
+  // Google login
+  const googleSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   // LOGIN
   const handleLogin = async (data) => {
     // console.log(data);
@@ -124,7 +131,7 @@ const LoginFrom = () => {
               />
               <label>Password</label>
               <span
-                className="absolute right-2 top-2 text-gray-600 "
+                className="absolute right-2 top-2 text-gray-600 cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -169,19 +176,20 @@ const LoginFrom = () => {
           <Button
             variant="secondary"
             className="w-full hover:bg-linear-to-t  from-red-600 via-red-500 to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
-            onPress={() =>
+            onPress={() => {
+              googleSignUp();
               toast.info("Google signup coming soon! 🚀", {
                 position: "top-right",
                 autoClose: 3000,
-              })
-            }
+              });
+            }}
           >
             <FcGoogle size={20} />
             <span>Continue with Google</span>
           </Button>
 
           <p className="text-sm text-center text-gray-700 ">
-            Don&apos;t have an account? ?
+            Don&apos;t have an account?
             <span className="text-orange-600">
               <Link href={"/register"}> Create one</Link>
             </span>

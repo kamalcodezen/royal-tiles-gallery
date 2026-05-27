@@ -24,6 +24,13 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
+  // Google login
+  const googleSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   // REGISTER
   const handleRegister = async (data) => {
     const name = data?.name?.trim();
@@ -122,9 +129,7 @@ const RegisterForm = () => {
             Create Account
           </h1>
 
-          <p className="text-muted-foreground ">
-            Start exploring Premium Tiles
-          </p>
+          <p className="text-gray-400 ">Start exploring Premium Tiles</p>
         </div>
 
         <form onSubmit={handleSubmit(handleRegister)}>
@@ -192,7 +197,7 @@ const RegisterForm = () => {
               />
               <label>Password</label>
               <span
-                className="absolute right-2 top-2 text-gray-600 "
+                className="absolute right-2 top-2 text-gray-600 cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -221,7 +226,7 @@ const RegisterForm = () => {
               />
               <label>Confirm Password</label>
               <span
-                className="absolute right-2 top-2 text-gray-600 "
+                className="absolute right-2 top-2 text-gray-600 cursor-pointer"
                 onClick={() => setConfirmPassword(!confirmPassword)}
               >
                 {confirmPassword ? (
@@ -261,19 +266,21 @@ const RegisterForm = () => {
           <Button
             variant="secondary"
             className="w-full hover:bg-linear-to-t  from-red-600 via-red-500 to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
-            onPress={() =>
-              toast.info("Google signup coming soon! 🚀", {
+            onPress={() => {
+              googleSignUp();
+              toast.info("Google login coming soon! 🚀", {
                 position: "top-right",
                 autoClose: 3000,
-              })
-            }
+              });
+            }}
+            // onClick={googleSignUp}
           >
             <FcGoogle size={20} />
             <span>Continue with Google</span>
           </Button>
 
           <p className="text-sm text-center text-gray-700 ">
-            Already have an account? ?
+            Already have an account?
             <span className="text-orange-600">
               <Link href={"/login"}> Login</Link>
             </span>
