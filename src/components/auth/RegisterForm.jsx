@@ -20,12 +20,34 @@ const RegisterForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-    
+
   // LOGIN
   const handleSignUp = async (data) => {
-    console.log(data);
+    // console.log(data);
 
- 
+    const { data: DataRes, error } = await authClient.signUp.email({
+      name: data?.name.trim(),
+      email: data?.email.trim(), // required
+      photo: data?.photo,
+      password: data?.password, // required
+      confirmPassword: data?.confirmPassword,
+    });
+
+    // console.log(DataRes, error);
+
+    /* =========================
+		   VALIDATION
+		========================= */
+
+    if (data?.password !== data?.confirmPassword) {
+      alert("password do not match");
+      return;
+    }
+
+    if (data?.password.length < 6) {
+      alert("Password must be at least 6 characters");
+      return;
+    }
   };
 
   return (
