@@ -1,0 +1,49 @@
+.input-group {
+    position: relative;
+    width: 340px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    border: 1px solid #ff3c06;
+    outline: none;
+    border-radius: 4px;
+    background: white;
+
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #777777;
+    font-size: 13px;
+    pointer-events: none;
+    transition: 0.3s ease;
+    background-color: #ffffff;
+    padding: 0 5px;
+}
+
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: -1px;
+    font-size: 13px;
+    color: black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+
+    -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset !important;
+
+    -webkit-text-fill-color: black !important;
+
+    transition: background-color 5000s ease-in-out 0s;
+
+}

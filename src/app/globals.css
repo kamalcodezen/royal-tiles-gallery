@@ -12,13 +12,13 @@ BASE
 ========================= */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* background: var(--background); */
+  /* color: var(--foreground); */
   font-family: var(--font-body);
 
-  transition:
+  /* transition:
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease; */
 }
 
 html {

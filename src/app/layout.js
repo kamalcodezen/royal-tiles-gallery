@@ -3,12 +3,14 @@ import "./globals.css";
 
 const urban = Urbanist({
   variable: "--font-urban",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
 
 })
 const siliguri = Hind_Siliguri({
   variable: "--font-siliguri",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
 })
 
 
@@ -28,6 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-theme="light"
       suppressHydrationWarning
       className={`${urban.variable}  ${poppins.variable} ${siliguri.variable} h-screen antialiased`}
     >
