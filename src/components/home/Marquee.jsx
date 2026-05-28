@@ -6,10 +6,10 @@ import { FaCrown, FaGem, FaArrowRight } from "react-icons/fa6";
 const LuxuryMarquee = () => {
   return (
     <div
-      className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 min-w-full   border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden
+      className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30  w-full  border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden
     "
     >
-      <Marquee speed={35} gradient={false} pauseOnHover className="py-4">
+      <Marquee speed={50} gradient={false} pauseOnHover className="py-4">
         <div className="flex items-center gap-14 px-6 text-white">
           {/* Item */}
           <div className="flex items-center gap-3">
@@ -88,7 +88,7 @@ const LuxuryMarquee = () => {
               </p>
 
               <h3 className="text-sm md:text-base font-semibold">
-                Luxury Ceramic Tiles from rs149/sqft
+                Luxury Ceramic Tiles from ₹149 /sq.ft
               </h3>
             </div>
           </div>
