@@ -1,8 +1,7 @@
 import { Poppins, Urbanist, Hind_Siliguri, } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import PageTransition from "@/components/shared/PageTransition";
 
 const urban = Urbanist({
   variable: "--font-urban",
@@ -38,7 +37,10 @@ export default function RootLayout({ children }) {
       className={`${urban.variable}  ${poppins.variable} ${siliguri.variable} h-screen antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <main className="min-h-screen">{children}
+        <main className="min-h-screen">
+          <PageTransition>
+            {children}
+          </PageTransition>
           <ToastContainer />
         </main>
       </body>

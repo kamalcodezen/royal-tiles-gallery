@@ -5,25 +5,30 @@ import "../../app/(auth)/auth.css";
 import { FaSearch } from "react-icons/fa";
 import { getAllTilesData, getSearchTilesData } from "@/data/getTilesData";
 import TilesCard from "../shared/TilesCard";
+import AllTilesLoading from "../shared/AllTilesLoading";
+import GlobalLoading from "@/app/(main)/loading";
 
 const TilesAll = () => {
   // Search Input
   const [search, setSearch] = useState("");
-
   // Search Result
   const [searchData, setSearchData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Load All Tiles Initially
   useEffect(() => {
     const loadTiles = async () => {
-      const allTiles = await getAllTilesData();
+      setLoading(true);
+      setTimeout(async () => {
+        const allTiles = await getAllTilesData();
+        setSearchData(allTiles);
 
-      setSearchData(allTiles);
+        setLoading(false);
+      }, 3000);
     };
 
     loadTiles();
   }, []);
-
   // Handle Search
   const handleSearch = async () => {
     const filterSearchData = await getSearchTilesData(search);
@@ -149,8 +154,14 @@ const TilesAll = () => {
       </div>
 
       {/* Tiles */}
-      <div
-        className="
+
+      {loading ? (
+        <div className="w-10/12 mx-auto">
+          <AllTilesLoading />
+        </div>
+      ) : (
+        <div
+          className="
           w-9/12
           sm:w-10/12
           lg:w-9/12
@@ -164,11 +175,12 @@ const TilesAll = () => {
           my-7
           mb-9
         "
-      >
-        {searchData.map((tiles) => (
-          <TilesCard key={tiles.id} tiles={tiles} />
-        ))}
-      </div>
+        >
+          {searchData.map((tiles) => (
+            <TilesCard key={tiles.id} tiles={tiles} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
