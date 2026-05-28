@@ -51,8 +51,8 @@ const Navbar = () => {
   };
 
   return (
-    <section className="shadow">
-      <nav className="w-11/12 mx-auto py-1 flex items-center justify-between ">
+    <section className="fixed top-0 left-0  w-full z-50 bg-white/40 backdrop-blur-md border-b border-white/20">
+      <nav className="w-11/12 mx-auto py-1 md:py-0 flex items-center justify-between ">
         {/* logo */}
         <Link href={"/"}>
           <div className="flex items-center">
@@ -65,28 +65,13 @@ const Navbar = () => {
             />
 
             <div className="text-center">
-              <span
-                className="
-        font-logo
-        font-bold
-        italic
-        text-[#15508b]
-        text-[clamp(1.2rem,3vw,2rem)]
-      "
-              >
+              <span className="font-logo font-bold italic text-[#15508b] text-[clamp(1.2rem,3vw,2rem)]">
                 Royal Tiles
               </span>
 
-              <p
-                className="
-        font-body
-        font-medium
-        text-[#15508b]
-        text-[clamp(0.7rem,2vw,1.1rem)]
-      "
-              >
+              {/* <p className="font-body font-medium text-[#15508b] text-[clamp(0.7rem,2vw,1.1rem)]">
                 Ceramics
-              </p>
+              </p> */}
             </div>
           </div>
         </Link>
@@ -126,7 +111,9 @@ const Navbar = () => {
                         src={user?.image || user?.name?.charAt(0)}
                         referrerPolicy="no-referrer"
                       />
-                      <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
+                      <Avatar.Fallback className="text-[#15508b] text-3xl">
+                        {user?.name?.charAt(0)}
+                      </Avatar.Fallback>
                     </Avatar>
                   </div>
 
