@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const FeatureTiles = async () => {
   const allTiles = await getAllTilesData();
-  console.log(allTiles, "tiles");
+  // console.log(allTiles, "tiles");
 
   return (
     <section className="w-9/12 sm:w-10/12 lg:w-9/12 mx-auto py-20">

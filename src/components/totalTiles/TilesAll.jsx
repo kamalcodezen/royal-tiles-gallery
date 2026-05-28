@@ -26,7 +26,7 @@ const TilesAll = () => {
         setSearchData(allTiles);
 
         setLoading(false);
-      }, 2000);
+      }, 1000);
     };
 
     loadTiles();

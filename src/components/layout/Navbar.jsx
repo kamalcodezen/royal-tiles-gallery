@@ -84,8 +84,8 @@ const Navbar = () => {
           {navLinks.map((link, ind) => (
             <li key={ind}>
               <Link
-                className={`transition-colors duration-200 text-[#fff] hover:text-orange-600 ${
-                  pathname === link.href ? "text-blue-800" : ""
+                className={`transition-colors duration-200 text-blue-800 hover:text-orange-600 ${
+                  pathname === link.href ? "text-orange-500" : ""
                 }`}
                 href={link.href}
               >
@@ -102,7 +102,7 @@ const Navbar = () => {
             <div className="h-10 w-24 animate-pulse rounded-2xl bg-muted" />
           )}
           {!isPending && user && (
-            <di className="flex items-center justify-center">
+            <div className="flex items-center justify-center">
               {/* Avatar */}
               <div className="md:flex flex items-center gap-3 justify-center ">
                 {/* Avatar Dropdown */}
@@ -135,7 +135,16 @@ const Navbar = () => {
                     </div>
 
                     <li>
-                      <Link href="/my-profile">My Profile</Link>
+                      <Link href="/profile" className="flex gap-4">
+                        <Avatar>
+                          <Avatar.Image
+                            alt={user?.name?.charAt(0)}
+                            src={user?.image || user?.name?.charAt(0)}
+                            referrerPolicy="no-referrer"
+                          />
+                        </Avatar>
+                        <p className="text-xl font-medium"> My Profile</p>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -175,7 +184,7 @@ const Navbar = () => {
                   <span className="relative z-10">Logout</span>
                 </button>
               </div>
-            </di>
+            </div>
           )}
 
           {!isPending && !user && (
