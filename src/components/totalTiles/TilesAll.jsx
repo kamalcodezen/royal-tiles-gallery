@@ -6,9 +6,11 @@ import { FaSearch } from "react-icons/fa";
 import { getAllTilesData, getSearchTilesData } from "@/data/getTilesData";
 import TilesCard from "../shared/TilesCard";
 import AllTilesLoading from "../shared/AllTilesLoading";
-import GlobalLoading from "@/app/(main)/loading";
+import { useRouter } from "next/navigation";
 
 const TilesAll = () => {
+  const router = useRouter();
+
   // Search Input
   const [search, setSearch] = useState("");
   // Search Result
@@ -40,24 +42,13 @@ const TilesAll = () => {
     <div>
       {/* Banner */}
       <div
-        className="
-          h-screen
-          bg-center
-          bg-cover
-          relative
-        "
+        className=" h-screen bg-center  bg-cover  relative  "
         style={{
           backgroundImage: "url('/images/allTiles.png')",
         }}
       >
         {/* Overlay */}
-        <div
-          className="
-          absolute
-          inset-0
-          bg-black/40
-        "
-        ></div>
+        <div className="  absolute  inset-0  bg-black/40 "></div>
 
         {/* Content */}
         <div
@@ -154,17 +145,23 @@ const TilesAll = () => {
       </div>
 
       {/* Tiles */}
-
-      {loading ? (
-        <div className="w-10/12 mx-auto">
-          <AllTilesLoading />
-        </div>
-      ) : (
-        <div
-          className="
+      <div className="w-10/12 mx-auto">
+        {loading ? (
+          <div className="w-10/12 mx-auto">
+            <AllTilesLoading />
+          </div>
+        ) : (
+          <>
+            <button
+              onClick={() => router.back()}
+              className="mt-6 px-5 py-1.5 bg-[#15508b]  text-white  rounded"
+            >
+              Go Back
+            </button>
+            <div
+              className="
           w-9/12
           sm:w-10/12
-          lg:w-9/12
           mx-auto
           grid
           grid-cols-1
@@ -175,12 +172,14 @@ const TilesAll = () => {
           my-7
           mb-9
         "
-        >
-          {searchData.map((tiles) => (
-            <TilesCard key={tiles.id} tiles={tiles} />
-          ))}
-        </div>
-      )}
+            >
+              {searchData.map((tiles) => (
+                <TilesCard key={tiles.id} tiles={tiles} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
