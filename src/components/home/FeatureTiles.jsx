@@ -8,7 +8,7 @@ const FeatureTiles = async () => {
   console.log(allTiles, "tiles");
 
   return (
-    <section className="w-11/12 mx-auto py-20">
+    <section className="w-9/12 sm:w-10/12 lg:w-9/12 mx-auto py-20">
       <div className="w-[80%] mx-auto space-y-4">
         <h2
           className="font-semibold text-4xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7]
@@ -28,7 +28,7 @@ const FeatureTiles = async () => {
         ))}
       </div>
       <Link href="/all-tiles" className="text-center">
-        <p className="uppercase text-[#15508b] sm:w-[30%] text-lg flex mx-auto items-center justify-center gap-2 hover:gap-4 transition-all duration-500 cursor-pointer  text-center">
+        <p className="uppercase text-[#15508b] sm:w-[50%] text-lg flex mx-auto items-center justify-center gap-2 hover:gap-4 transition-all duration-500 cursor-pointer  text-center">
           <span className="font-medium text-xl">Discover More </span>
           <span>
             <IoIosArrowDroprightCircle className="text-[#15508b] text-4xl" />

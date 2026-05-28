@@ -94,7 +94,9 @@ const LoginFrom = () => {
             dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)] rounded-xl"
         >
           {/* header */}
-          <p className="font-semibold text-2xl text-orange-600 ">
+          <p
+            className="font-semibold text-2xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7] to-orange-500 bg-clip-text text-transparent"
+          >
             Welcome Back
           </p>
           <p className="mb-2 text-sm text-gray-400">
@@ -157,7 +159,10 @@ const LoginFrom = () => {
           <button
             type="submit"
             disabled={loading}
-            className="btn w-full bg-linear-to-t  from-red-600 via-red-500 to-orange-500 text-white mb-3   rounded-full disabled:cursor-not-allowed
+            className="btn w-full  bg-linear-to-r
+                from-[#15508b]
+                via-[#1c6ab7]
+                to-orange-500 text-white mb-3   rounded-full disabled:cursor-not-allowed
               disabled:opacity-70"
           >
             {loading ? (
@@ -175,7 +180,11 @@ const LoginFrom = () => {
           {/* Google */}
           <Button
             variant="secondary"
-            className="w-full hover:bg-linear-to-t  from-red-600 via-red-500 to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
+            className="w-full 
+            inset-0 hover:bg-linear-to-r
+                from-[#15508b]
+                via-[#1c6ab7]
+                to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-500"
             onPress={() => {
               googleSignUp();
               toast.info("Google signup coming soon! 🚀", {

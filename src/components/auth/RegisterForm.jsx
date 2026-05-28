@@ -74,7 +74,7 @@ const RegisterForm = () => {
               autoClose: 3000,
             });
 
-            router.push("/");
+            router.push("/login");
           },
 
           onError: (ctx) => {
@@ -125,7 +125,10 @@ const RegisterForm = () => {
             <User size={28} />
           </div> */}
 
-          <h1 className="text-3xl text-orange-600 font-serif font-bold ">
+          <h1
+            className="text-3xl bg-linear-to-r from-[#15508b] via-[#1c6ab7]
+ to-orange-500 bg-clip-text text-transparent font-serif font-bold "
+          >
             Create Account
           </h1>
 
@@ -247,7 +250,8 @@ const RegisterForm = () => {
           <button
             type="submit"
             disabled={loading}
-            className="btn w-full bg-linear-to-t  from-red-600 via-red-500 to-orange-500 text-white mb-3   disabled:cursor-not-allowed
+            className="btn w-full bg-linear-to-r from-[#15508b] via-[#1c6ab7]
+ to-orange-500 text-white mb-3   disabled:cursor-not-allowed
               disabled:opacity-70 rounded-full"
           >
             {loading ? (
@@ -265,7 +269,8 @@ const RegisterForm = () => {
           {/* Google */}
           <Button
             variant="secondary"
-            className="w-full hover:bg-linear-to-t  from-red-600 via-red-500 to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
+            className="w-full hover:bg-linear-to-r from-[#15508b] via-[#1c6ab7]
+ to-orange-500 hover:text-white mb-3 border border-border rounded-full transition-all duration-300"
             onPress={() => {
               googleSignUp();
               toast.info("Google login coming soon! 🚀", {

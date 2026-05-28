@@ -84,8 +84,8 @@ const Navbar = () => {
           {navLinks.map((link, ind) => (
             <li key={ind}>
               <Link
-                className={`transition-colors duration-200 text-[#15508b] hover:text-orange-600 ${
-                  pathname === link.href ? "text-orange-600" : ""
+                className={`transition-colors duration-200 text-[#fff] hover:text-orange-600 ${
+                  pathname === link.href ? "text-blue-800" : ""
                 }`}
                 href={link.href}
               >
