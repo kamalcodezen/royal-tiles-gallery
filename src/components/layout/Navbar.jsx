@@ -61,11 +61,14 @@ const Navbar = () => {
               height={30}
               src={logo}
               alt="logo"
-              className="w-[clamp(2.8rem,6vw,4.4rem)] h-auto"
+              className="w-[clamp(2.8rem,6vw,4.4rem)] h-auto "
             />
 
             <div className="text-center">
-              <span className="font-logo font-bold italic text-[#15508b] text-[clamp(1.2rem,3vw,2rem)]">
+              <span
+                className="font-logo font-bold italic bg-linear-to-r from-[#15508b] via-[#1c6ab7]
+ to-orange-500 bg-clip-text text-transparent text-[clamp(1.2rem,3vw,2rem)]"
+              >
                 Royal Tiles
               </span>
 
