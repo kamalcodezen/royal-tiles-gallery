@@ -79,7 +79,7 @@ const TilesCard = ({ tiles }) => {
 
         <div>
 
-          <h2 className="text-xl font-semibold sm:min-h-[60px]">
+          <h2 className="text-xl font-semibold sm:min-h-[60px] lg:min-h-0">
             {title}
           </h2>
 
