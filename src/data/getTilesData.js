@@ -18,7 +18,7 @@ export const getAllTilesData = async () => {
 
 export const getSearchTilesData = async (title = "") => {
     const res = await fetch(
-        "https://royal-tiles-gallery.vercel.app/tiles-data.json"
+        "https://royal-tiles-gallery.vercel.app/tiles-data.json", { cache: "no-store" }
     );
     const data = await res.json();
     // Empty search হলে সব data return
@@ -35,3 +35,4 @@ export const getSearchTilesData = async (title = "") => {
     });
     return foundData;
 };
+

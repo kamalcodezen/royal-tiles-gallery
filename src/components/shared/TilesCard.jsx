@@ -105,7 +105,7 @@ const TilesCard = ({ tiles }) => {
         </div>
 
         {/* Button */}
-        <Link href={`/tile/${id}`}>
+        <Link href={`/all-tiles/${id}`}>
 
           <button
             className="
