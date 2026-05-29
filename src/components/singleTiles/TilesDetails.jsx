@@ -26,7 +26,7 @@ const TilesDetails = async ({ tile }) => {
 
   return (
     <section className="bg-[#f8fafc] py-16 min-h-[50vh]">
-      <div className="w-9/12 lg:w-10/12 mx-auto min-h-[50vh]">
+      <div className="w-11/12 sm:w-9/12 lg:w-10/12 mx-auto min-h-[50vh]">
         {/* Back Button */}
         <Link href="/all-tiles">
           <button

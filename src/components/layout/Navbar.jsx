@@ -74,7 +74,7 @@ const Navbar = () => {
             />
 
             <div className="text-center">
-              <span className="font-logo font-bold italic text-[#15508b] t text-[clamp(1.2rem,3vw,2rem)]">
+              <span className="font-logo font-bold italic text-[#15508b] t text-[clamp(2.5rem,3vw,3rem)]">
                 Royal
               </span>
 

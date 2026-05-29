@@ -83,26 +83,25 @@ const LoginFrom = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="min-h-[80vh] flex flex-col items-center justify-center">
-        {/* form */}
-        <form
-          onSubmit={handleSubmit(handleLogin)}
-          className=" px-8 p-20 border   border-zinc-200/60 dark:border-white/10
+      <div
+        className="min-h-[100vh] w-full flex flex-col items-center justify-center   px-8 p-10 border   border-zinc-200/60 dark:border-white/10
             bg-white/80 dark:bg-zinc-900/70
             backdrop-blur-xl
             shadow-[0_8px_30px_rgb(0,0,0,0.08)]
             dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)] rounded-xl"
-        >
+      >
+        <div className="text-start">
           {/* header */}
-          <p
-            className="font-semibold text-2xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7] to-orange-500 bg-clip-text text-transparent"
-          >
+          <p className="font-semibold text-2xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7] to-orange-500 bg-clip-text text-transparent">
             Welcome Back
           </p>
           <p className="mb-6 text-sm text-gray-400">
             Sign in to your Premium Tiles account
           </p>
+        </div>
 
+        {/* form */}
+        <form onSubmit={handleSubmit(handleLogin)} >
           {/* email */}
           <div className="mb-6">
             <div className="input-group ">

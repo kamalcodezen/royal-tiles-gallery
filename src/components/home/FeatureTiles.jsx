@@ -8,7 +8,7 @@ const FeatureTiles = async () => {
   // console.log(allTiles, "tiles");
 
   return (
-    <section className="w-9/12 sm:w-10/12 lg:w-9/12 mx-auto py-20">
+    <section className="w-10/12 sm:w-10/12 lg:w-9/12 mx-auto py-20">
       <div className="w-[80%] mx-auto space-y-4">
         <h2
           className="font-semibold text-4xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7]

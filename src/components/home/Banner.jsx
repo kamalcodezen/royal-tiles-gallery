@@ -78,7 +78,7 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black/30"></div>
 
             {/* Content */}
-            <div className="relative z-10 flex items-end md:items-center justify-center md:justify-start h-full px-5 md:px-16 pb-20 md:pt-70">
+            <div className="relative z-10 flex items-end md:items-center justify-center md:justify-start h-full px-5 md:px-16 pb-40 md:pt-70">
               <div className="max-w-2xl text-white text-center md:text-left">
                 <h1 className="text-3xl md:text-6xl  leading-tight">
                   Discover Your Perfect Aesthetic
@@ -111,7 +111,7 @@ const Banner = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/30"></div>
 
-            <div className="relative z-10 flex items-end justify-center md:justify-center h-full px-5 md:px-16 pb-20 md:pb-28 ">
+            <div className="relative z-10 flex items-end justify-center md:justify-center h-full px-5 md:px-16 pb-40 md:pb-28 ">
               <div className="max-w-3xl text-center md:text-left">
                 <h2 className=" text-3xl sm:text-4xl md:text-6xl text-white leading-tight  text-center">
                   Timeless Tiles for
@@ -148,7 +148,7 @@ const Banner = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/30"></div>
 
-            <div className="relative z-10 flex items-end justify-center md:justify-center h-full px-5 md:px-16 pb-20 md:pb-28 text-center">
+            <div className="relative z-10 flex items-end justify-center md:justify-center h-full px-5 md:px-16 pb-40 md:pb-28 text-center">
               <div className="max-w-3xl text-center ">
                 <h2 className=" text-3xl sm:text-4xl md:text-6xl text-white leading-tight  text-center">
                   Beauty That Lasts Beyond Seasons
