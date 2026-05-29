@@ -160,7 +160,7 @@ const TilesAll = () => {
             </button>
             <div
               className="
-          w-9/12
+          w-11/12
           sm:w-10/12
           mx-auto
           grid

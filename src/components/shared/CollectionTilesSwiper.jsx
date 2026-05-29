@@ -9,13 +9,13 @@ import Link from "next/link";
 
 const CollectionTilesSwiper = ({ collection }) => {
   return (
-    <section className=" w-9/12 sm:w-full  mx-auto  pt-8 pb-20">
+    <section className=" w-full  mx-auto  pt-8 pb-20">
       <Swiper
         slidesPerView={3.5}
         spaceBetween={15}
         breakpoints={{
           0: {
-            slidesPerView: 1,
+            slidesPerView: 1.1,
           },
           640: {
             slidesPerView: 2.1,
