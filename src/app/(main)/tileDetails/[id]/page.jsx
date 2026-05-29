@@ -1,6 +1,19 @@
 import TilesDetails from "@/components/singleTiles/TilesDetails";
 import { getAllTilesData } from "@/data/getTilesData";
 
+export const generateMetadata = async ({params}) => {
+  const { id } = await params;
+
+  const allTiles = await getAllTilesData();
+
+  const tile = allTiles.find((tiles) => tiles.id == id);
+
+  return {
+    title: `${tile.title}`,
+    description: `${tile.description}`,
+  };
+};
+
 const TilesDetailsPage = async ({ params }) => {
   const { id } = await params;
 
@@ -10,6 +23,7 @@ const TilesDetailsPage = async ({ params }) => {
 
   const tile = allTiles.find((tiles) => tiles.id == id);
   //   console.log(tile);
+
   if (!tile) {
     return <div className="p-10 text-center text-red-500">Tiles not found</div>;
   }

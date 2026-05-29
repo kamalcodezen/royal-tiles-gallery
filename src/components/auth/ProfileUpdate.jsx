@@ -166,7 +166,7 @@ const ProfileUpdate = () => {
                 <Input
                   name="name"
                   label="Full Name"
-                  placeholder="Enter your full name"
+                  placeholder="Enter your name"
                   size="lg"
                   startContent={<FaUser className="text-gray-400" />}
                   variant="bordered"
@@ -175,7 +175,7 @@ const ProfileUpdate = () => {
                 />
 
                 {/* Email */}
-                <Input
+                {/* <Input
                   name="email"
                   label="Email Address"
                   placeholder="Enter your email"
@@ -186,10 +186,10 @@ const ProfileUpdate = () => {
                   radius="lg"
                   readOnly
                   className="mr-4"
-                />
+                /> */}
 
                 {/* Phone */}
-                <Input
+                {/* <Input
                   label="Phone Number"
                   placeholder="Enter your number"
                   type="number"
@@ -199,7 +199,9 @@ const ProfileUpdate = () => {
                   radius="lg"
                   readOnly
                   className="mr-4"
-                />
+                /> */}
+
+                {/* image */}
                 <Input
                   name="image"
                   label="Image Url"

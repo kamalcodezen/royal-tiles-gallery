@@ -36,7 +36,7 @@ const Banner = () => {
             }}
           >
             <div className="max-w-3xl h-full flex items-center  justify-start px-5 md:px-16 pb-20 md:pb-0">
-              <div className="text-white max-w-3xl text-center md:text-left mb-40 md:ml-20">
+              <div className="text-white max-w-3xl text-center md:text-left mb-40 lg:ml-20">
                 <h1 className="text-2xl md:text-4xl font-semibold leading-tight">
                   Ghar mein
                   <span className="text-4xl md:text-6xl italic font-bold">

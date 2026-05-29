@@ -8,11 +8,13 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Dropdown, Label } from "@heroui/react";
 import { toast } from "react-toastify";
 import GlobalLoading from "@/app/(main)/loading";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const { data, isPending } = authClient.useSession();
   const user = data?.user;
@@ -195,7 +197,7 @@ const Navbar = () => {
 
           {/* ── DESKTOP: Logged Out ── */}
           {!isPending && !user && (
-            <Link href={"/login"} >
+            <Link href={"/login"}>
               <button
                 size="sm"
                 className="hidden md:flex cursor-pointer relative overflow-hidden px-6 py-2 rounded bg-[#15508b] text-white group"
@@ -216,8 +218,6 @@ const Navbar = () => {
                 <Button
                   isIconOnly
                   size="sm"
-                  variant="flat"
-                  aria-label="Open navigation menu"
                   className=" bg-[#15508b] text-white cursor-pointer"
                 >
                   <Menu />
