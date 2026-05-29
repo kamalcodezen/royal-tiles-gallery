@@ -5,9 +5,10 @@ import logo from "../../../public/images/logo.png";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { Avatar } from "@heroui/react";
+import { Avatar, Button, Dropdown, Label } from "@heroui/react";
 import { toast } from "react-toastify";
 import GlobalLoading from "@/app/(main)/loading";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -57,7 +58,7 @@ const Navbar = () => {
 
   return (
     <section className="fixed top-0 left-0  w-full z-50">
-       {/* bg-white/10 backdrop-blur-md border-b border-white/20 */}
+      {/* bg-white/10 backdrop-blur-md border-b border-white/20 */}
       <nav className="w-11/12 mx-auto py-1 md:py-0 flex items-center justify-between ">
         {/* logo */}
         <Link href={"/"}>
@@ -71,9 +72,7 @@ const Navbar = () => {
             />
 
             <div className="text-center">
-              <span
-                className="font-logo font-bold italic text-[#15508b] t text-[clamp(1.2rem,3vw,2rem)]"
-              >
+              <span className="font-logo font-bold italic text-[#15508b] t text-[clamp(1.2rem,3vw,2rem)]">
                 Royal
               </span>
 
@@ -106,8 +105,10 @@ const Navbar = () => {
           {isPending && (
             <div className="h-10 w-24 animate-pulse rounded-2xl bg-muted" />
           )}
+
+          {/* ── DESKTOP: Logged In ── */}
           {!isPending && user && (
-            <div className="flex items-center justify-center">
+            <div className=" items-center justify-center hidden md:flex cursor-pointer">
               {/* Avatar */}
               <div className="md:flex flex items-center gap-3 justify-center ">
                 {/* Avatar Dropdown */}
@@ -115,7 +116,7 @@ const Navbar = () => {
                   <div tabIndex={0}>
                     <Avatar>
                       <Avatar.Image
-                        alt="kamal"
+                        alt={user?.name?.charAt(0)}
                         src={user?.image || user?.name?.charAt(0)}
                         referrerPolicy="no-referrer"
                       />
@@ -192,11 +193,12 @@ const Navbar = () => {
             </div>
           )}
 
+          {/* ── DESKTOP: Logged Out ── */}
           {!isPending && !user && (
-            <Link href={"/login"}>
+            <Link href={"/login"} >
               <button
                 size="sm"
-                className=" relative overflow-hidden px-6 py-2 rounded bg-[#15508b] text-white group"
+                className="hidden md:flex cursor-pointer relative overflow-hidden px-6 py-2 rounded bg-[#15508b] text-white group"
               >
                 {/* Hover Background */}
                 <span className=" absolute inset-0 w-0 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 z-0 "></span>
@@ -206,6 +208,103 @@ const Navbar = () => {
               </button>
             </Link>
           )}
+
+          {/* ── MOBILE: Hamburger Dropdown ── */}
+          <div className="md:hidden">
+            <Dropdown>
+              <Dropdown.Trigger>
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="flat"
+                  aria-label="Open navigation menu"
+                  className=" bg-[#15508b] text-white cursor-pointer"
+                >
+                  <Menu />
+                </Button>
+              </Dropdown.Trigger>
+
+              <Dropdown.Popover className="w-full mt-3">
+                {!isPending && user && (
+                  <div className="px-3 pt-3 pb-1">
+                    <div className="flex items-center gap-2">
+                      <Avatar size="sm">
+                        <Avatar.Image
+                          alt={user?.name?.charAt(0)}
+                          src={user?.image || user?.name?.charAt(0)}
+                          referrerPolicy="no-referrer"
+                        />
+                        <Avatar.Fallback delayMs={600}>
+                          {user?.name?.charAt(0)}
+                        </Avatar.Fallback>
+                      </Avatar>
+                      <div className="flex flex-col gap-0">
+                        <p className="text-sm leading-5 font-medium">
+                          {user?.name?.charAt(0)}
+                        </p>
+                        <p className="text-xs leading-none text-muted">
+                          {user?.email || "User"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <Dropdown.Menu aria-label="Navigation menu">
+                  {/* Nav Links */}
+                  {navLinks.map((link) => (
+                    <Dropdown.Item key={link.href} textValue={link.label}>
+                      <Link
+                        href={link.href}
+                        className="block w-full font-medium text-foreground"
+                      >
+                        {link.label}
+                      </Link>
+                    </Dropdown.Item>
+                  ))}
+
+                  {/* My Profile — only when logged in */}
+                  {user ? (
+                    <Dropdown.Item key="user-actions" textValue="User Actions">
+                      <div className="flex items-center justify-between gap-4 w-full">
+                        <Link
+                          href="/profile"
+                          className="font-medium text-[#15508b] btn btn-outline w-[50%]"
+                        >
+                          My Profile
+                        </Link>
+
+                        <button
+                          onClick={handleLogout}
+                          className="font-medium w-[50%] text-white cursor-pointer btn-error btn"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    </Dropdown.Item>
+                  ) : (
+                    <Dropdown.Item key="user-actions" textValue="user-actions">
+                      <div className="flex items-center justify-between gap-4 w-full">
+                        <Link
+                          href="/login"
+                          className="font-medium text-white btn btn-info w-[50%]"
+                        >
+                          Login
+                        </Link>
+
+                        <Link
+                          href="/register"
+                          className="font-medium text-[#15508b] btn btn-active w-[50%]"
+                        >
+                          Register
+                        </Link>
+                      </div>
+                    </Dropdown.Item>
+                  )}
+                </Dropdown.Menu>
+              </Dropdown.Popover>
+            </Dropdown>
+          </div>
         </div>
       </nav>
     </section>
