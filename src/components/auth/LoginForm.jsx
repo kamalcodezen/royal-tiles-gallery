@@ -99,7 +99,7 @@ const LoginFrom = () => {
           >
             Welcome Back
           </p>
-          <p className="mb-2 text-sm text-gray-400">
+          <p className="mb-6 text-sm text-gray-400">
             Sign in to your Premium Tiles account
           </p>
 

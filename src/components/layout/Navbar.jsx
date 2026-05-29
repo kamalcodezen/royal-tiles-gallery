@@ -56,7 +56,8 @@ const Navbar = () => {
   }
 
   return (
-    <section className="fixed top-0 left-0  w-full z-50 bg-white/40 backdrop-blur-md border-b border-white/20">
+    <section className="fixed top-0 left-0  w-full z-50">
+       {/* bg-white/10 backdrop-blur-md border-b border-white/20 */}
       <nav className="w-11/12 mx-auto py-1 md:py-0 flex items-center justify-between ">
         {/* logo */}
         <Link href={"/"}>
@@ -71,8 +72,7 @@ const Navbar = () => {
 
             <div className="text-center">
               <span
-                className="font-logo font-bold italic bg-linear-to-r from-[#15508b] via-[#1c6ab7]
- to-orange-500 bg-clip-text text-transparent text-[clamp(1.2rem,3vw,2rem)]"
+                className="font-logo font-bold italic text-[#15508b] t text-[clamp(1.2rem,3vw,2rem)]"
               >
                 Royal
               </span>

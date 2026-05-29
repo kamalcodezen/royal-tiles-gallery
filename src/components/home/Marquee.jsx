@@ -6,7 +6,7 @@ import { FaCrown, FaGem, FaArrowRight } from "react-icons/fa6";
 const LuxuryMarquee = () => {
   return (
     <div
-      className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30  w-full  border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden
+      className=" absolute bottom-0 left-1/2 -translate-x-1/2 z-30  w-full   shadow-2xl overflow-hidden
     "
     >
       <Marquee speed={50} gradient={false} pauseOnHover className="py-4">

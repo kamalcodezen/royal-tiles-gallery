@@ -9,13 +9,16 @@ import Link from "next/link";
 
 const CollectionTilesSwiper = ({ collection }) => {
   return (
-    <section className=" mx-auto  pt-8 pb-20">
+    <section className=" w-9/12 sm:w-full  mx-auto  pt-8 pb-20">
       <Swiper
         slidesPerView={3.5}
         spaceBetween={15}
         breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2.1,
           },
           1024: {
             slidesPerView: 3.4,
@@ -37,7 +40,7 @@ const CollectionTilesSwiper = ({ collection }) => {
                   alt={item.title}
                   className="
             w-full
-            h-50
+            h-80
             md:h-85
             object-cover
             rounded group-hover:scale-110 transition-all duration-500
