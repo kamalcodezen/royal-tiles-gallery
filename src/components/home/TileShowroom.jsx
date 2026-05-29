@@ -13,7 +13,7 @@ const TileShowroom = () => {
         </p>
 
         <h2
-          className="font-semibold text-4xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7]
+          className="font-semibold text-2xl sm:text-4xl  bg-linear-to-r from-[#15508b] via-[#1c6ab7]
  to-orange-500 bg-clip-text text-transparent"
         >
           Elegant Designs - Affordable Luxury With Endless Options
