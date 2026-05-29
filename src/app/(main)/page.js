@@ -3,6 +3,7 @@ import FeatureTiles from "@/components/home/FeatureTiles";
 import TopMarquee from "@/components/home/Marquee";
 import CollectionTiles from "@/components/home/CollectionTiles";
 import WhyChoose from "@/components/home/WhyChoose";
+import TileShowroom from "@/components/home/TileShowroom";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeatureTiles />
       <CollectionTiles />
       <WhyChoose />
+      <TileShowroom />
     </>
   )
 }
