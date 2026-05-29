@@ -22,13 +22,15 @@ const ProfileUpdate = () => {
     });
 
     if (result?.data) {
-      toast.success(`Profile Updated`);
+      toast.success(`Profile Updated Successfully`);
     }
 
     if (result?.error) {
-      toast.error(result.error.message);
+      toast.error("Something went wrong");
+      //   toast.error(result.error.message);
     }
   };
+  
   if (isPending) {
     return <GlobalLoading />;
   }
@@ -266,64 +268,6 @@ const ProfileUpdate = () => {
                   </Button>
                 </div>
               </form>
-              {/* <Modal>
-                <Button variant="secondary">Open Contact Form</Button>
-                <Modal.Backdrop>
-                  <Modal.Container placement="auto">
-                    <Modal.Dialog className="sm:max-w-md">
-                      <Modal.CloseTrigger />
-                      <Modal.Header>
-                        <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                          <User className="size-5" />
-                        </Modal.Icon>
-                        <Modal.Heading>Contact Us</Modal.Heading>
-                      </Modal.Header>
-                      <Modal.Body className="p-6">
-                        <Surface variant="default">
-                          <form
-                            onSubmit={submit}
-                            className="flex flex-col gap-4"
-                          >
-                            <TextField
-                              className="w-full"
-                              name="name"
-                              type="text"
-                              variant="secondary"
-                            >
-                              <Label>Name</Label>
-
-                              <Input
-                                defaultValue={user?.name}
-                                placeholder="Enter your name"
-                              />
-                            </TextField>
-
-                            <TextField
-                              name="image"
-                              type="url"
-                              className="w-full"
-                              variant="secondary"
-                            >
-                              <Label>url</Label>
-
-                              <Input
-                                defaultValue={user?.name}
-                                placeholder="url"
-                              />
-                            </TextField>
-
-                            <Modal.Footer>
-                              <Button type="submit" slot="close">
-                                Update
-                              </Button>
-                            </Modal.Footer>
-                          </form>
-                        </Surface>
-                      </Modal.Body>
-                    </Modal.Dialog>
-                  </Modal.Container>
-                </Modal.Backdrop>
-              </Modal> */}
             </div>
           </div>
         </Card>

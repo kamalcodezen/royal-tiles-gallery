@@ -3,25 +3,12 @@ import { Chip } from "@heroui/react";
 import { FaStar } from "react-icons/fa";
 
 const TilesCard = ({ tiles }) => {
-
-  const {
-    id,
-    title,
-    image,
-    category,
-    style,
-    rating,
-    inStock,
-    reviews,
-  } = tiles;
+  const { id, title, image, category, style, rating, inStock, reviews } = tiles;
 
   return (
-
     <div className="space-y-3">
-
       {/* Image */}
       <div className="relative overflow-hidden rounded-2xl group">
-
         <img
           src={image}
           alt={title}
@@ -38,14 +25,16 @@ const TilesCard = ({ tiles }) => {
         />
 
         {/* Overlay */}
-        <div className="
+        <div
+          className="
           absolute
           inset-0
           bg-black/10
           group-hover:bg-black/10
           transition-all
           duration-500
-        "></div>
+        "
+        ></div>
 
         {/* Category */}
         <Chip
@@ -71,42 +60,29 @@ const TilesCard = ({ tiles }) => {
         >
           {inStock ? "In Stock" : "Out of Stock"}
         </Chip>
-
       </div>
 
       {/* Content */}
       <div className="space-y-1">
-
         <div>
-
           <h2 className="text-xl font-semibold sm:min-h-[60px] lg:min-h-0">
             {title}
           </h2>
 
-          <p className="text-gray-500 text-sm">
-            {style}
-          </p>
-
+          <p className="text-gray-500 text-sm">{style}</p>
         </div>
 
         {/* Rating */}
         <div className="flex items-center gap-2">
-
           <FaStar className="text-orange-400" />
 
-          <span className="font-medium">
-            {rating}
-          </span>
+          <span className="font-medium">{rating}</span>
 
-          <span className="text-gray-400 text-sm">
-            ({reviews} reviews)
-          </span>
-
+          <span className="text-gray-400 text-sm">({reviews} reviews)</span>
         </div>
 
         {/* Button */}
-        <Link href={`/all-tiles/${id}`}>
-
+        <Link href={`/tileDetails/${id}`}>
           <button
             className="
               relative
@@ -122,7 +98,6 @@ const TilesCard = ({ tiles }) => {
               cursor-pointer mb-6
             "
           >
-
             {/* Hover Background */}
             <span
               className="
@@ -144,13 +119,9 @@ const TilesCard = ({ tiles }) => {
             <span className="relative z-10 group-hover:text-white transition-all duration-300">
               View Details
             </span>
-
           </button>
-
         </Link>
-
       </div>
-
     </div>
   );
 };

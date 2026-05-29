@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@heroui/react";
 import { toast } from "react-toastify";
+import GlobalLoading from "@/app/(main)/loading";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -49,6 +50,10 @@ const Navbar = () => {
       },
     });
   };
+
+  if (isPending) {
+    return <GlobalLoading />;
+  }
 
   return (
     <section className="fixed top-0 left-0  w-full z-50 bg-white/40 backdrop-blur-md border-b border-white/20">
