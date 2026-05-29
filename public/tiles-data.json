@@ -203,11 +203,9 @@
       "rating": 4.6,
       "reviews": 102,
       "inStock": true
-    }
-  ],
-  "collection": [
+    },
     {
-      "id": "tile_001",
+      "id": "tile_013",
       "title": "Royal Marble White",
       "description": "Luxurious white marble tile with subtle gray veining for elegant interiors.",
       "image": "https://i.ibb.co/XrLx2rc0/high000904.jpg",
@@ -224,7 +222,7 @@
       "inStock": true
     },
     {
-      "id": "tile_002",
+      "id": "tile_014",
       "title": "Golden Travertine",
       "description": "Premium travertine tile featuring warm golden textures and timeless appeal.",
       "image": "https://i.ibb.co/Q3hvH7x1/VT00615.jpg",
@@ -241,7 +239,7 @@
       "inStock": true
     },
     {
-      "id": "tile_003",
+      "id": "tile_015",
       "title": "Forest Green Porcelain",
       "description": "Nature-inspired green porcelain tile perfect for modern and organic spaces.",
       "image": "https://i.ibb.co/4C6HqbF/VT00639.jpg",
@@ -258,7 +256,7 @@
       "inStock": true
     },
     {
-      "id": "tile_004",
+      "id": "tile_016",
       "title": "Sandstone Beige",
       "description": "Warm beige sandstone tile designed for cozy and inviting interiors.",
       "image": "https://i.ibb.co/XfYqdsLc/E00000000798.jpg",
@@ -275,7 +273,7 @@
       "inStock": true
     },
     {
-      "id": "tile_005",
+      "id": "tile_017",
       "title": "Midnight Granite",
       "description": "Bold black granite tile with a polished finish for sophisticated interiors.",
       "image": "https://i.ibb.co/nqQ7YN8f/high001957.jpg",
@@ -292,7 +290,7 @@
       "inStock": false
     },
     {
-      "id": "tile_006",
+      "id": "tile_018",
       "title": "Sky Blue Mosaic",
       "description": "Artistic mosaic tile with refreshing blue shades for bathrooms and feature walls.",
       "image": "https://i.ibb.co/4nZ6GCmH/E00000000800.jpg",
@@ -309,7 +307,7 @@
       "inStock": true
     },
     {
-      "id": "tile_007",
+      "id": "tile_019",
       "title": "Terra Cotta Heritage",
       "description": "Traditional terracotta tile offering a warm and authentic Mediterranean feel.",
       "image": "https://i.ibb.co/MxnwmpQJ/VT00576.jpg",
@@ -326,7 +324,7 @@
       "inStock": true
     },
     {
-      "id": "tile_008",
+      "id": "tile_020",
       "title": "Pearl White Gloss",
       "description": "Glossy white ceramic tile that brightens spaces with a clean modern aesthetic.",
       "image": "https://i.ibb.co/mrhm9WqM/SH000187.jpg",
@@ -343,7 +341,7 @@
       "inStock": true
     },
     {
-      "id": "tile_009",
+      "id": "tile_021",
       "title": "Charcoal Slate",
       "description": "Natural slate tile featuring deep charcoal tones and rugged textures.",
       "image": "https://i.ibb.co/3VYQh97/savoy-nero.jpg",
@@ -360,7 +358,7 @@
       "inStock": false
     },
     {
-      "id": "tile_010",
+      "id": "tile_022",
       "title": "Silver Vein Quartz",
       "description": "Premium quartz tile with elegant silver veining for luxurious interiors.",
       "image": "https://i.ibb.co/z0H0QKd/artek-nero-1.jpg",

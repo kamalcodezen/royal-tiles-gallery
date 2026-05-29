@@ -1,7 +1,7 @@
 import Banner from "@/components/home/Banner";
 import FeatureTiles from "@/components/home/FeatureTiles";
 import TopMarquee from "@/components/home/Marquee";
-import GlobalLoading from "./loading";
+import CollectionTiles from "@/components/home/CollectionTiles";
 
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
       <Banner />
       <TopMarquee />
       <FeatureTiles />
+      <CollectionTiles />
     </>
   )
 }

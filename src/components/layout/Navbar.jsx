@@ -74,7 +74,7 @@ const Navbar = () => {
                 className="font-logo font-bold italic bg-linear-to-r from-[#15508b] via-[#1c6ab7]
  to-orange-500 bg-clip-text text-transparent text-[clamp(1.2rem,3vw,2rem)]"
               >
-                Royal Tiles
+                Royal
               </span>
 
               {/* <p className="font-body font-medium text-[#15508b] text-[clamp(0.7rem,2vw,1.1rem)]">
