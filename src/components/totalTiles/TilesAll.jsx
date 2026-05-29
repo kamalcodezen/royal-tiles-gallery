@@ -173,7 +173,7 @@ const TilesAll = () => {
           mb-9
         "
             >
-              {searchData.map((tiles) => (
+              {searchData.slice(0, 12).map((tiles) => (
                 <TilesCard key={tiles.id} tiles={tiles} />
               ))}
             </div>
