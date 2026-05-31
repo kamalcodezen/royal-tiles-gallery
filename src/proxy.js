@@ -13,7 +13,18 @@ export async function proxy(request) {
     if (session) {
         return NextResponse.next()
     }
-    return NextResponse.redirect(new URL('/login', request.url))
+
+    // requested page
+    const pathname = request.nextUrl.pathname;
+
+    // login url
+    const loginUrl = new URL("/login", request.url);
+
+    // save redirect page
+    loginUrl.searchParams.set("redirect", pathname);
+
+
+    return NextResponse.redirect(loginUrl);
 }
 
 export const config = {

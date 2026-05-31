@@ -6,7 +6,7 @@ import { Button } from "@heroui/react";
 
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter} from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
@@ -14,6 +14,10 @@ import { toast } from "react-toastify";
 
 const LoginFrom = () => {
   const router = useRouter();
+  // const searchParams = useSearchParams();
+
+  // const redirect = searchParams.get("redirect");
+
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -58,7 +62,12 @@ const LoginFrom = () => {
               position: "top-right",
               autoClose: 3000,
             });
-            router.push("/");
+            // router.push("/");
+
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get("redirect");
+
+            window.location.href = redirect || "/";
           },
 
           onError: (ctx) => {
@@ -101,7 +110,7 @@ const LoginFrom = () => {
         </div>
 
         {/* form */}
-        <form onSubmit={handleSubmit(handleLogin)} >
+        <form onSubmit={handleSubmit(handleLogin)}>
           {/* email */}
           <div className="mb-6">
             <div className="input-group ">
