@@ -65,17 +65,17 @@ const Navbar = () => {
         {/* logo */}
         <Link href={"/"}>
           <div className="flex items-center">
-            <Image
+            {/* <Image
               width={70}
               height={30}
               src={logo}
               alt="logo"
               className="w-[clamp(2.8rem,6vw,4.4rem)] h-auto "
-            />
+            /> */}
 
             <div className="text-center">
               <span className="font-logo font-bold italic text-[#15508b] t text-[clamp(2.5rem,3vw,3rem)]">
-                Royal
+                Royal Tiles
               </span>
 
               {/* <p className="font-body font-medium text-[#15508b] text-[clamp(0.7rem,2vw,1.1rem)]">
