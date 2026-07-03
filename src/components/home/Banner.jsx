@@ -40,7 +40,7 @@ const Banner = () => {
                 <h1 className="text-2xl md:text-4xl font-semibold leading-tight">
                   Ghar mein
                   <span className="text-4xl md:text-6xl italic font-bold">
-                    {" "}
+                    
                     Royal
                   </span>
                   <br />
